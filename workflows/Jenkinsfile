@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/vsflcn/erp-products-codes-generation.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                script {
+                    docker.build('my-flask-app')
+                }
+            }
+        }
+
+        stage('Run') {
+            steps {
+                script {
+                    docker.image('my-flask-app').run('-d -p 5000:5000')
+                }
+            }
+        }
+    }
+}
