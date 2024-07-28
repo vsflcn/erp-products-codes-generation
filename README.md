@@ -37,3 +37,22 @@ To build and run the application using Docker:
 ```bash
 docker build -t my-flask-app .
 docker run -d -p 5000:5000 my-flask-app
+```
+## Using Docker Compose
+
+To run the application using Docker Compose:
+```bash
+docker-compose up
+```
+
+## Jenkins
+
+The project includes a Jenkinsfile for setting up a Jenkins pipeline. The pipeline will:
+
+    Checkout the code from the GitHub repository.
+    Build the Docker image.
+    Run the Docker container.
+
+## License
+
+This project is licensed under the MIT License.
